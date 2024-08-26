@@ -1,0 +1,17 @@
+.footer {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #545454;
+  justify-content: start;
+  margin: 60px 200px;
+}
+
+@media screen and (max-width: 550px) {
+  .footer {
+    width: 320px;
+    align-content: center;
+    height: 10rem;
+    text-align: left;
+    margin-left: 1.5rem;
+  }
+}
