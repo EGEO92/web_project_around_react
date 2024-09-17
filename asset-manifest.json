@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/web_project_around_react/static/css/main.f1401c48.css",
-    "main.js": "/web_project_around_react/static/js/main.b6a5f1bd.js",
+    "main.css": "/web_project_around_react/static/css/main.cef328b4.css",
+    "main.js": "/web_project_around_react/static/js/main.79f0e107.js",
     "static/js/453.569163c1.chunk.js": "/web_project_around_react/static/js/453.569163c1.chunk.js",
     "static/media/Inter-ExtraBold.otf": "/web_project_around_react/static/media/Inter-ExtraBold.ff2581a193bf6b7e0b06.otf",
     "static/media/Inter-Bold.otf": "/web_project_around_react/static/media/Inter-Bold.8d330503e1d034ad68de.otf",
@@ -17,12 +17,12 @@
     "static/media/Inter-Regular.woff2": "/web_project_around_react/static/media/Inter-Regular.76224c7fa303861462e7.woff2",
     "index.html": "/web_project_around_react/index.html",
     "static/media/Trashtrash.svg": "/web_project_around_react/static/media/Trashtrash.a85cc5e25106301e909ec4b962980e9e.svg",
-    "main.f1401c48.css.map": "/web_project_around_react/static/css/main.f1401c48.css.map",
-    "main.b6a5f1bd.js.map": "/web_project_around_react/static/js/main.b6a5f1bd.js.map",
+    "main.cef328b4.css.map": "/web_project_around_react/static/css/main.cef328b4.css.map",
+    "main.79f0e107.js.map": "/web_project_around_react/static/js/main.79f0e107.js.map",
     "453.569163c1.chunk.js.map": "/web_project_around_react/static/js/453.569163c1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1401c48.css",
-    "static/js/main.b6a5f1bd.js"
+    "static/css/main.cef328b4.css",
+    "static/js/main.79f0e107.js"
   ]
 }
