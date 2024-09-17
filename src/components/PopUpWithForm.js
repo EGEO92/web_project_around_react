@@ -9,6 +9,7 @@ export default function PopUpWithForm(props) {
     >
       <h2 className="profile__popup-title, popup__title">{props.title}</h2>
       <form
+        onSubmit={props.onSubmit}
         className={`profile__form-avatar form popup_type_${props.name}`}
         name={props.name}
       >

@@ -75,6 +75,11 @@
 .places__button-likeactive {
   background-image: url(../images/heart_vector_active.png);
   background-repeat: no-repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  align-self: center;
+  background-color: #fff;
 }
 
 .places__button-trash {
@@ -83,6 +88,13 @@
   position: absolute;
   top: 25px;
   right: 15px;
+}
+
+.trash-button_visible {
+  visibility: visible;
+}
+.trash-button_hidden {
+  visibility: hidden;
 }
 
 .places__imgtrash {

@@ -1,35 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import editButton from "../images/Edit_Button.png";
 import addButton from "../images/Add_Button.png";
 import closeButton from "../images/Close_Icon.png";
 import Card from "./Card.js";
-import api from "../utils/api.js";
+import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 export default function Main(props) {
-  const [userName, setUserName] = useState("");
-  const [userDescription, setUserDescription] = useState("");
-  const [userAvatar, setUserAvatar] = useState("");
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    async function getUser() {
-      const response = await api.getUserInfo();
-      setUserName(response.name);
-      setUserDescription(response.about);
-      setUserAvatar(response.avatar);
-    }
-    getUser();
-  }, []);
-
-  useEffect(() => {
-    async function getCards() {
-      const response = await api.getInitialCards();
-      console.log(response);
-      setCards(response);
-    }
-    getCards();
-  }, []);
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <main>
@@ -43,18 +21,18 @@ export default function Main(props) {
           className="profile__image-filter"
         />
         <img
-          src={userAvatar}
+          src={currentUser.avatar}
           onClick={props.onEditAvatarClick}
           className="profile__image"
           id="profile__image"
           alt="Imagen de perfil"
-          style={{ backgroundImage: `url(${userAvatar})` }}
+          style={{ backgroundImage: `url(${currentUser.avatar})` }}
         />
 
         <div className="profile__wraper">
           <div className="profile__info">
-            <h2 className="profile__name">{userName}</h2>
-            <p className="profile__occupation">{userDescription}</p>
+            <h2 className="profile__name">{currentUser.name}</h2>
+            <p className="profile__occupation">{currentUser.about}</p>
           </div>
           <button
             onClick={props.onEditProfileClick}
@@ -81,7 +59,7 @@ export default function Main(props) {
         </button>
       </section>
       <section className="places">
-        {cards.map((card) => (
+        {props.cards.map((card) => (
           <Card
             name={card.name}
             link={card.link}
@@ -89,15 +67,10 @@ export default function Main(props) {
             key={card._id}
             onCardClick={props.onCardClick}
             card={card}
+            onCardLike={props.onCardLike}
+            onCardDelete={props.onCardDelete}
           />
         ))}
-        {/* <div className="card places__popupcard">
-          <img className="card__popupimg places__popupimg" src="#" alt="#" />
-          <p className="card__popuptitle places__popuptitle"></p>
-          <button className="places__buttonclose close button">
-            <img src={closeButton} id="close__image" alt="boton de cerrar" />
-          </button>
-        </div> */}
       </section>
 
       <section

@@ -45,7 +45,7 @@ class Api {
       .finally((result) => {});
   }
 
-  editUserInfo(data) {
+  setUserInfo(data) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.headers,
@@ -61,9 +61,6 @@ class Api {
           return Promise.reject(`Error ${res.status}`);
         }
       })
-      .then((result) => {
-        // userInfo.setUserInfo(result);
-      })
       .catch((error) => {
         console.log(error);
       })
@@ -72,12 +69,12 @@ class Api {
       });
   }
 
-  editUserAvatar(data) {
+  editUserAvatar(link) {
     fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
-        avatar: data.avatar,
+        avatar: link,
       }),
     })
       .then((res) => {
@@ -88,8 +85,7 @@ class Api {
         }
       })
       .then((result) => {
-        console.log("Este es el avatar => ", result.avatar);
-        // userInfo.setUserAvatar(result.avatar);
+        return result;
       });
   }
 
@@ -167,6 +163,14 @@ class Api {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  changeLikeCardStatus(cardId, isLiked) {
+    if (isLiked) {
+      return this.removeLike(cardId);
+    } else {
+      return this.addLike(cardId);
+    }
   }
 }
 
