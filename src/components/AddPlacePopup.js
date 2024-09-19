@@ -7,10 +7,17 @@ export default function AddPlacePopup({ isOpen, onClose, submitPlace }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(titleRef?.current?.validity);
     submitPlace({
       name: titleRef.current.value,
       link: imgLinkRef.current.value,
     });
+  }
+  function validation(ref) {
+    if (ref.current.value.length > 1) {
+      return;
+    }
+    console.log("Invalid input...");
   }
 
   return (
@@ -32,6 +39,9 @@ export default function AddPlacePopup({ isOpen, onClose, submitPlace }) {
         minLength="2"
         maxLength="40"
         required
+        onBlur={() => {
+          validation(titleRef);
+        }}
         autoComplete="off"
         ref={titleRef}
       />
